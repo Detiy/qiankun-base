@@ -1,0 +1,19 @@
+.main {
+  height: 100%;
+  width: 100%;
+  background-color: #001529;
+}
+.box {
+  height: 50%;
+  width: 50%;
+  margin: 0 auto;
+  padding-top: 100px;
+}
+.box .border-box-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.reactBtn {
+  margin-right: 40px;
+}
