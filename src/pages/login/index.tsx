@@ -13,10 +13,13 @@ import loginApi from '../../api/login'
 const Login = () => {
   const goNavigate = useNavigate();
   useEffect(() => {
-    // 校验是否已经登录
-    if (localStorage.getItem("token")) {
+    if (localStorage.getItem("login_success") === '1') {
       goNavigate("/main");
     }
+    // 校验是否已经登录
+    // if (localStorage.getItem("token")) {
+    //   goNavigate("/main");
+    // }
   }, []);
   const [form] = Form.useForm(); // 只有函数式组件能用
   type formValues = {
@@ -38,14 +41,15 @@ const Login = () => {
       form.resetFields();
       return;
     }
-    let params = {
-      username: values.username,
-      password: values.password,
-    }
-    loginApi.login(params).then((res: AxiosResponse) => {
-    if (res.status === 200) goNavigate("/main")
-    })
-    // localStorage.setItem("login_success", "1");
+    // let params = {
+    //   username: values.username,
+    //   password: values.password,
+    // }
+    // loginApi.login(params).then((res: AxiosResponse) => {
+    // if (res.status === 200) goNavigate("/main")
+    // })
+    localStorage.setItem("login_success", "1");
+    goNavigate("/main");
   }
   return (
     <div className="log_bc">
